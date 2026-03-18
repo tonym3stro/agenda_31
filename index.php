@@ -2,6 +2,9 @@
 
 <head>
     <title>Contatos - Turma 31</title>
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -24,10 +27,11 @@
 
     if (mysqli_num_rows($resultado) > 0) {
         echo "<table border=1> <tr><th>Nome</th>
-            <th>Endereço</th> <th>Telefone</th></tr>";
+            <th>Endereço</th> <th>Telefone</th><th>Ação</tr>";
         while ($linha = mysqli_fetch_assoc($resultado)) {
             echo "<tr><td>" . $linha['nome'] . "</td><td>" .
-                $linha['endereco'] . "</td><td>" . $linha['telefone'] . "</td></tr>";
+                $linha['endereco'] . "</td><td>" . $linha['telefone'] . "</td>
+                <td> <a href='editar.php?id=" . $linha['id'] . "'>Editar</a> </td></tr>";
         }
         echo "</table>";
     } else {
